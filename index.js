@@ -7,15 +7,15 @@ require("dotenv").config();
 let app = express();
 // More explicit CORS configuration
 app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'http://localhost:3000', 
-    'https://otome-haven.vercel.app',
-    'https://otome-haven-*.vercel.app'
-  ],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+    origin: [
+        'http://localhost:5173',
+        'http://localhost:3000',
+        'https://otome-haven.vercel.app',
+        'https://otome-haven-*.vercel.app'
+    ],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
 
 // Explicitly handle OPTIONS requests
@@ -34,7 +34,7 @@ const pool = new Pool({
 async function getPostgresVersion() {
     const client = await pool.connect();
     try {
-        const result = client.query("SELECT version()");
+        const result = await client.query("SELECT version()");
         console.log(result.rows);
     } catch (error) {
         console.error(error);
