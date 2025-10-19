@@ -5,9 +5,21 @@ const cors = require("cors");
 require("dotenv").config();
 
 let app = express();
+// More explicit CORS configuration
 app.use(cors({
-  origin: '*', // allow all origins
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:3000', 
+    'https://otome-haven.vercel.app',
+    'https://otome-haven-*.vercel.app'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
+
+// Explicitly handle OPTIONS requests
+app.options('*', cors());
 app.use(express.json());
 
 const DATABASE_URL = process.env.VITE_DATABASE_URL;
