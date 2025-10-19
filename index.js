@@ -5,7 +5,9 @@ const cors = require("cors");
 require("dotenv").config();
 
 let app = express();
-app.use(cors());
+app.use(cors({
+  origin: '*', // allow all origins
+}));
 app.use(express.json());
 
 const DATABASE_URL = process.env.VITE_DATABASE_URL;
