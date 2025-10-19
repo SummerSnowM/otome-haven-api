@@ -5,18 +5,19 @@ const cors = require("cors");
 require("dotenv").config();
 
 let app = express();
+app.use(cors());
 // More explicit CORS configuration
-app.use(cors({
-    origin: [
-        'http://localhost:5173',
-        'http://localhost:3000',
-        'https://otome-haven.vercel.app',
-        'https://otome-haven-*.vercel.app'
-    ],
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
-}));
+// app.use(cors({
+//     origin: [
+//         'http://localhost:5173',
+//         'http://localhost:3000',
+//         'https://otome-haven.vercel.app',
+//         'https://otome-haven-*.vercel.app'
+//     ],
+//     credentials: true,
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+// }));
 
 // Explicitly handle OPTIONS requests
 app.options('*', cors());
