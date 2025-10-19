@@ -10,7 +10,7 @@ app.use(cors({
 }));
 app.use(express.json());
 
-const { DATABASE_URL } = process.env;
+const { DATABASE_URL } = process.env.VITE_DATABASE_URL;
 
 const pool = new Pool({
   connectionString: DATABASE_URL,
