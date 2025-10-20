@@ -6,7 +6,7 @@ require("dotenv").config();
 
 let app = express();
 app.use(cors({
-  origin: 'https://otome-haven.vercel.app',
+  origin: ['https://otome-haven.vercel.app', 'https://firebasestorage.googleapis.com']
 }))
 app.use(express.json());
 
