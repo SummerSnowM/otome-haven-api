@@ -5,12 +5,10 @@ const cors = require("cors");
 require("dotenv").config();
 
 let app = express();
-app.use(cors({
-  origin: '*', // allow all origins
-}));
+app.use(cors())
 app.use(express.json());
 
-const { DATABASE_URL } = process.env.VITE_DATABASE_URL;
+const DATABASE_URL = process.env.VITE_DATABASE_URL;
 
 const pool = new Pool({
   connectionString: DATABASE_URL,
