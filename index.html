@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otome Haven API</title>
+</head>
+
+<body>
+    <h1>Otome Haven API</h1>
+    <p><strong>Note:</strong> This API is specifically used for https://otome-haven.vercel.app only.</p>
+    <p><strong>API Link:</strong> https://otome-haven-api.vercel.app</p>
+    <p><strong>How to use:</strong> {API Link}/{Functions}</p>
+
+    <h2>List of Functions are as follows:</h2>
+
+    <h3>Games</h3>
+    <ul>
+        <li>GET /games/:id - get all games by user id</li>
+        <li>GET /games/single/:id - get one game by game id</li>
+        <li>POST /games/:id - add a new game</li>
+        <li>DELETE /games/:id - delete a game by game id</li>
+        <li>PUT /games/:id - update game information by game id</li>
+    </ul>
+
+    <h3>Characters</h3>
+    <ul>
+        <li>GET /characters/:id - get all characters by game id</li>
+        <li>GET /characters/single/:id - get one character by character id</li>
+        <li>POST /characters/:id - add new character by game id</li>
+        <li>PUT /characters/:id - update character by character id</li>
+        <li>DELETE /characters/:id - delete character by character id</li>
+    </ul>
+
+    <h3>Game Ending Tracker: Chapters and Choices</h3>
+    <ul>
+        <li>POST /chapter/:id - add a new chapter by character id</li>
+        <li>POST /chapter/description/:id - add new description to chapter</li>
+        <li>PUT /chapter/description/:id - update description by character id</li>
+        <li>DELETE /chapter/:id/:chapter - delete specific chapter by character id</li>
+    </ul>
+
+    <h3>Game Ending Tracker: Routes</h3>
+    <ul>
+        <li>PUT /routes/:id/:endingId - update default route to a new ending</li>
+    </ul>
+
+    <h3>Game Ending Tracker: Endings</h3>
+    <ul>
+        <li>GET /endings/bestend/:id - get best ending by character id</li>
+        <li>GET /endings/badend/:id - get bad ending by character id</li>
+        <li>GET /endings/bffend/:id - get best friends by character id</li>
+        <li>GET /endings/normalend/:id - get normal ending by character id</li>
+        <li>GET /endings/gameoverend/:id - get game over ending by character id</li>
+        <li>GET /endings/unrequitedlove/:id - get unrequited love ending by character id</li>
+        <li>GET /endings/defaultend/:id - get default ending by character id</li>
+    </ul>
+</body>
+
+</html>

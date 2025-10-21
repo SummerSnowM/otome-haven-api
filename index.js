@@ -1,4 +1,5 @@
 let express = require("express");
+let path = require("path");
 
 const { Pool } = require("pg");
 const cors = require("cors");
@@ -295,7 +296,7 @@ app.post("/characters/:id", async (req, res) => {
   }
 });
 
-//update game by game id
+//update characters by game id
 app.put(`/characters/:id`, async (req, res) => {
   const { id } = req.params;
   const { voice_actor, personality, review, rating } = req.body;
@@ -759,7 +760,7 @@ app.get("/endings/defaultend/:id", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.sendFile(path.join(__dirname, "/index.html"));
 });
 
 app.listen(5000, () => {
